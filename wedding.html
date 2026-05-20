@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>חתונת אלימלך ואביטל | ט׳ סיון תשפ״ו</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Noto+Serif+Hebrew:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-dark:    #1e1510;
+      --gold-light: #e8d5a3;
+      --gold-mid:   #d4b483;
+      --gold-acc:   #c9a96e;
+      --gold-deep:  #a8843c;
+      --gold-line:  #d4a855;
+    }
+
+    body {
+      background: var(--bg-dark);
+      background-image:
+        radial-gradient(ellipse at 15% 15%, #4a3428 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 85%, #4a3428 0%, transparent 55%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 30px 15px 50px;
+      font-family: 'Noto Serif Hebrew', serif;
+      direction: rtl;
+    }
+
+    /* ── Card ── */
+    .card {
+      max-width: 580px;
+      width: 100%;
+      position: relative;
+      padding: 55px 48px 50px;
+      background: linear-gradient(160deg, #4a3528 0%, #382a22 35%, #432f26 65%, #2e221a 100%);
+      box-shadow: 0 0 80px rgba(0,0,0,0.9), inset 0 0 100px rgba(0,0,0,0.25);
+    }
+
+    /* Gold border frame */
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 14px;
+      border: 1px solid var(--gold-acc);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Botanical SVG overlay */
+    .floral {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.17;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* בס״ד */
+    .bsd {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      font-size: 11px;
+      color: var(--gold-acc);
+      letter-spacing: 1px;
+      z-index: 3;
+    }
+
+    /* ── Content ── */
+    .content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    /* Logo circle */
+    .logo-circle {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 1.5px solid var(--gold-acc);
+      box-shadow: 0 0 0 4px rgba(201,169,110,0.15), 0 0 30px rgba(201,169,110,0.2);
+      overflow: hidden;
+      margin: 0 auto 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.15);
+    }
+
+    .logo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Ornament divider */
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 22px 0;
+    }
+
+    .orn-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to var(--d), transparent, var(--gold-acc));
+    }
+    .orn-line.r { --d: left; }
+    .orn-line.l { --d: right; }
+
+    .orn-diamond {
+      width: 6px;
+      height: 6px;
+      background: var(--gold-acc);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    /* Names */
+    .name {
+      display: block;
+      font-family: 'Frank Ruhl Libre', serif;
+      font-size: 82px;
+      font-weight: 900;
+      color: var(--gold-light);
+      line-height: 1;
+      letter-spacing: 4px;
+      text-shadow: 0 2px 24px rgba(201,169,110,0.25);
+    }
+
+    .amp {
+      display: block;
+      font-family: 'Frank Ruhl Libre', serif;
+      font-size: 56px;
+      color: var(--gold-acc);
+      line-height: 1.35;
+    }
+
+    /* Info section */
+    .hebrew-date {
+      font-size: 17px;
+      color: var(--gold-mid);
+      margin-bottom: 4px;
+      font-weight: 400;
+    }
+
+    .greg-date {
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+    }
+
+    .venue-name {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+    }
+
+    .venue-addr {
+      font-size: 15px;
+      color: var(--gold-acc);
+    }
+
+    /* Times */
+    .times {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 30px 0 22px;
+    }
+
+    .time-block {
+      flex: 1;
+      text-align: center;
+    }
+
+    .time-label {
+      font-size: 13.5px;
+      color: var(--gold-acc);
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .time-val {
+      font-family: 'Frank Ruhl Libre', serif;
+      font-size: 44px;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 3px;
+      direction: ltr;
+      display: block;
+    }
+
+    .times-sep {
+      width: 1px;
+      height: 72px;
+      background: linear-gradient(to bottom, transparent, var(--gold-acc), transparent);
+      margin: 0 28px;
+      flex-shrink: 0;
+    }
+
+    /* Closing */
+    .closing {
+      font-size: 15px;
+      color: var(--gold-mid);
+      font-weight: 300;
+      margin: 4px 0 24px;
+    }
+
+    /* Parents */
+    .parents-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 12px 0;
+    }
+
+    .parents-col { flex: 1; text-align: center; }
+
+    .parents-title {
+      font-size: 13px;
+      color: var(--gold-acc);
+      text-decoration: underline;
+      text-decoration-color: var(--gold-acc);
+      text-underline-offset: 3px;
+      margin-bottom: 6px;
+    }
+
+    .parents-names {
+      font-size: 14px;
+      color: var(--gold-mid);
+      line-height: 1.75;
+    }
+
+    .gp-title {
+      font-size: 13px;
+      color: var(--gold-acc);
+      margin: 16px 0 10px;
+    }
+
+    .gp-names {
+      font-size: 13px;
+      color: var(--gold-acc);
+      line-height: 1.75;
+      flex: 1;
+      text-align: center;
+    }
+
+    /* ── Action buttons ── */
+    .actions { margin-top: 36px; }
+
+    .waze-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 36px;
+      border: 1px solid var(--gold-acc);
+      background: transparent;
+      color: var(--gold-light);
+      font-family: 'Noto Serif Hebrew', serif;
+      font-size: 15px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.3s, box-shadow 0.3s;
+      margin-bottom: 32px;
+    }
+
+    .waze-btn:hover {
+      background: rgba(201,169,110,0.15);
+      box-shadow: 0 0 22px rgba(201,169,110,0.2);
+    }
+
+    .cal-heading {
+      font-size: 15px;
+      color: var(--gold-mid);
+      font-weight: 300;
+      margin-bottom: 14px;
+    }
+
+    .cal-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cal-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      width: 100%;
+      max-width: 265px;
+      padding: 11px 18px;
+      background: transparent;
+      border: 1px solid rgba(201,169,110,0.45);
+      color: var(--gold-mid);
+      font-family: 'Noto Serif Hebrew', serif;
+      font-size: 14px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .cal-btn:hover {
+      border-color: var(--gold-acc);
+      color: var(--gold-light);
+      background: rgba(201,169,110,0.1);
+    }
+
+    .cal-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    /* ── Responsive ── */
+    @media (max-width: 500px) {
+      .card  { padding: 40px 24px 40px; }
+      .name  { font-size: 60px; }
+      .amp   { font-size: 44px; }
+      .time-val { font-size: 34px; }
+    }
+  </style>
+</head>
+<body>
+<div class="card">
+
+  <!-- Botanical line-art background -->
+  <svg class="floral" viewBox="0 0 580 950" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <g stroke="#d4a855" stroke-width="0.75" fill="none">
+
+      <!-- TOP-RIGHT: large peony -->
+      <g transform="translate(390,-15)">
+        <circle cx="85" cy="85" r="62"/>
+        <circle cx="85" cy="85" r="42"/>
+        <circle cx="85" cy="85" r="24"/>
+        <!-- 8 outer petals -->
+        <ellipse cx="85" cy="10"  rx="10" ry="28"/>
+        <ellipse cx="85" cy="160" rx="10" ry="28"/>
+        <ellipse cx="10" cy="85"  rx="28" ry="10"/>
+        <ellipse cx="160" cy="85" rx="28" ry="10"/>
+        <ellipse cx="30" cy="30"  rx="10" ry="28" transform="rotate(-45 30 30)"/>
+        <ellipse cx="140" cy="30" rx="10" ry="28" transform="rotate(45 140 30)"/>
+        <ellipse cx="30" cy="140" rx="10" ry="28" transform="rotate(45 30 140)"/>
+        <ellipse cx="140" cy="140" rx="10" ry="28" transform="rotate(-45 140 140)"/>
+        <!-- 8 inner petals -->
+        <ellipse cx="85" cy="50"  rx="6" ry="16"/>
+        <ellipse cx="85" cy="120" rx="6" ry="16"/>
+        <ellipse cx="50" cy="85"  rx="16" ry="6"/>
+        <ellipse cx="120" cy="85" rx="16" ry="6"/>
+        <ellipse cx="56" cy="56"  rx="6" ry="16" transform="rotate(-45 56 56)"/>
+        <ellipse cx="114" cy="56" rx="6" ry="16" transform="rotate(45 114 56)"/>
+        <ellipse cx="56" cy="114" rx="6" ry="16" transform="rotate(45 56 114)"/>
+        <ellipse cx="114" cy="114" rx="6" ry="16" transform="rotate(-45 114 114)"/>
+        <!-- stem + leaves -->
+        <path d="M85 170 Q80 230 85 300"/>
+        <path d="M85 205 Q55 198 44 215 Q34 232 48 246"/>
+        <path d="M85 255 Q112 248 122 265"/>
+        <path d="M44 224 Q16 214 12 238 Q8 262 42 255 Q52 248 44 224Z"/>
+        <path d="M120 267 Q148 257 150 282 Q152 307 120 300 Q108 292 120 267Z"/>
+      </g>
+
+      <!-- TOP-LEFT: small branch -->
+      <g transform="translate(-18,55)">
+        <path d="M75 0 Q58 70 50 155 Q44 235 58 315"/>
+        <path d="M58 82 Q28 72 18 87 Q8 102 22 113"/>
+        <path d="M53 162 Q22 156 11 172"/>
+        <!-- bud -->
+        <ellipse cx="20" cy="96" rx="12" ry="19"/>
+        <path d="M20 77 Q13 68 10 57"/>
+        <path d="M20 77 Q27 68 30 57"/>
+        <!-- leaf -->
+        <path d="M14 174 Q-12 163 -15 186 Q-18 209 14 202 Q24 195 14 174Z"/>
+      </g>
+
+      <!-- LEFT-CENTER: medium flower -->
+      <g transform="translate(-22,390)">
+        <circle cx="55" cy="55" r="34"/>
+        <circle cx="55" cy="55" r="20"/>
+        <ellipse cx="55" cy="14"  rx="7" ry="20"/>
+        <ellipse cx="55" cy="96"  rx="7" ry="20"/>
+        <ellipse cx="14" cy="55"  rx="20" ry="7"/>
+        <ellipse cx="96" cy="55"  rx="20" ry="7"/>
+        <ellipse cx="27" cy="27"  rx="7" ry="20" transform="rotate(-45 27 27)"/>
+        <ellipse cx="83" cy="27"  rx="7" ry="20" transform="rotate(45 83 27)"/>
+        <ellipse cx="27" cy="83"  rx="7" ry="20" transform="rotate(45 27 83)"/>
+        <ellipse cx="83" cy="83"  rx="7" ry="20" transform="rotate(-45 83 83)"/>
+      </g>
+
+      <!-- BOTTOM-LEFT: large anemone -->
+      <g transform="translate(-28,700)">
+        <circle cx="90" cy="90" r="58"/>
+        <circle cx="90" cy="90" r="38"/>
+        <circle cx="90" cy="90" r="20"/>
+        <ellipse cx="90" cy="20"  rx="9" ry="26"/>
+        <ellipse cx="90" cy="160" rx="9" ry="26"/>
+        <ellipse cx="20" cy="90"  rx="26" ry="9"/>
+        <ellipse cx="160" cy="90" rx="26" ry="9"/>
+        <ellipse cx="37" cy="37"  rx="9" ry="26" transform="rotate(-45 37 37)"/>
+        <ellipse cx="143" cy="37" rx="9" ry="26" transform="rotate(45 143 37)"/>
+        <ellipse cx="37" cy="143" rx="9" ry="26" transform="rotate(45 37 143)"/>
+        <ellipse cx="143" cy="143" rx="9" ry="26" transform="rotate(-45 143 143)"/>
+        <!-- stem reaching up -->
+        <path d="M90 -25 Q94 25 90 42"/>
+        <path d="M90 5 Q118 -6 128 10"/>
+        <path d="M90 22 Q63 11 52 28"/>
+      </g>
+
+      <!-- RIGHT-CENTER: vertical stem + butterfly -->
+      <g transform="translate(522,320)">
+        <path d="M0 0 Q18 60 8 120 Q-2 180 12 240"/>
+        <path d="M6 62 Q34 52 42 36"/>
+        <path d="M10 122 Q-18 112 -26 96"/>
+        <path d="M11 178 Q38 170 45 155"/>
+        <!-- butterfly -->
+        <path d="M50 38 Q72 18 77 38 Q72 58 50 38Z"/>
+        <path d="M50 38 Q28 18 23 38 Q28 58 50 38Z"/>
+        <path d="M50 46 Q67 65 70 46 Q67 27 50 46Z"/>
+        <path d="M50 46 Q33 65 30 46 Q33 27 50 46Z"/>
+        <circle cx="50" cy="42" r="3"/>
+        <path d="M50 45 Q52 55 50 65"/>
+      </g>
+
+      <!-- BOTTOM-RIGHT: small flower cluster -->
+      <g transform="translate(445,760)">
+        <path d="M0 165 Q18 88 8 0"/>
+        <path d="M5 88 Q34 78 44 62"/>
+        <path d="M7 118 Q-22 108 -32 122"/>
+        <!-- small flower -->
+        <circle cx="44" cy="55" r="24"/>
+        <circle cx="44" cy="55" r="13"/>
+        <ellipse cx="44" cy="24"  rx="6" ry="15"/>
+        <ellipse cx="44" cy="86"  rx="6" ry="15"/>
+        <ellipse cx="13" cy="55"  rx="15" ry="6"/>
+        <ellipse cx="75" cy="55"  rx="15" ry="6"/>
+        <ellipse cx="23" cy="34"  rx="6" ry="15" transform="rotate(-45 23 34)"/>
+        <ellipse cx="65" cy="34"  rx="6" ry="15" transform="rotate(45 65 34)"/>
+        <ellipse cx="23" cy="76"  rx="6" ry="15" transform="rotate(45 23 76)"/>
+        <ellipse cx="65" cy="76"  rx="6" ry="15" transform="rotate(-45 65 76)"/>
+      </g>
+
+      <!-- TOP horizontal branch -->
+      <g transform="translate(80,-8)">
+        <path d="M0 18 Q55 35 115 15 Q175 -5 230 20"/>
+        <path d="M55 26 Q50 6 40 -2"/>
+        <path d="M115 16 Q120 -4 132 -12"/>
+        <path d="M175 10 Q178 -10 188 -18"/>
+      </g>
+
+    </g>
+  </svg>
+
+  <span class="bsd">בס״ד</span>
+
+  <div class="content">
+
+    <!-- Logo -->
+    <div class="logo-circle">
+      <img src="לוגו אלימלך ואביטל.png" alt="אלימלך ואביטל">
+    </div>
+
+    <div class="ornament">
+      <div class="orn-line l"></div>
+      <div class="orn-diamond"></div>
+      <div class="orn-line r"></div>
+    </div>
+
+    <!-- Date & Venue -->
+    <div class="hebrew-date">יום שני ט׳ סיון תשפ״ו</div>
+    <div class="greg-date">25 במאי 2026</div>
+    <div class="venue-name">גן ארועים אמרלד</div>
+    <div class="venue-addr">פארק תעשיות שורק, בית שמש</div>
+
+    <!-- Times -->
+    <div class="times">
+      <div class="time-block">
+        <div class="time-label">קבלת פנים</div>
+        <span class="time-val">18:00</span>
+      </div>
+      <div class="times-sep"></div>
+      <div class="time-block">
+        <div class="time-label">חופה</div>
+        <span class="time-val">18:45</span>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="actions">
+
+      <a href="https://waze.com/ul/hsv8usmdpg" target="_blank" rel="noopener" class="waze-btn">
+        <img src="לוגו ווייז.png.webp" alt="Waze" width="28" height="28" style="object-fit:contain;">
+        ניווט לגן אמרלד
+      </a>
+
+      <div class="cal-heading">הוספה ליומן</div>
+
+      <div class="cal-buttons">
+
+        <!-- Google Calendar -->
+        <a class="cal-btn" href="#" onclick="openGoogle(event)">
+          <img src="לוגו גוגל.svg.png" alt="Google Calendar" width="24" height="24" style="object-fit:contain;">
+          Google Calendar
+        </a>
+
+        <!-- Apple Calendar -->
+        <a class="cal-btn" href="#" onclick="downloadICS(event)">
+          <img src="לוגו אפל.svg" alt="Apple Calendar" width="20" height="24" style="object-fit:contain; filter:invert(1);">
+          Apple Calendar
+        </a>
+
+        <!-- Outlook -->
+        <a class="cal-btn" href="#" onclick="downloadICS(event)">
+          <img src="לוגו אווטלוק.png" alt="Outlook Calendar" width="24" height="24" style="object-fit:contain;">
+          Outlook Calendar
+        </a>
+
+      </div>
+    </div>
+  </div><!-- .content -->
+</div><!-- .card -->
+
+<script>
+  var EVENT = {
+    title:    'חתונת אלימלך ואביטל',
+    start:    '20260525T180000',
+    end:      '20260525T230000',
+    location: 'גן ארועים אמרלד, פארק תעשיות שורק, בית שמש',
+    desc:     'קבלת פנים: 18:00 | חופה: 18:45\nניווט בWaze: https://waze.com/ul/hsv8usmdpg'
+  };
+
+  function openGoogle(e) {
+    e.preventDefault();
+    var url = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+      + '&text='     + encodeURIComponent(EVENT.title)
+      + '&dates='    + EVENT.start + '/' + EVENT.end
+      + '&location=' + encodeURIComponent(EVENT.location)
+      + '&details='  + encodeURIComponent(EVENT.desc);
+    window.open(url, '_blank');
+  }
+
+  function downloadICS(e) {
+    e.preventDefault();
+    var lines = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//Wedding//HE',
+      'CALSCALE:GREGORIAN',
+      'METHOD:PUBLISH',
+      'BEGIN:VEVENT',
+      'DTSTART:' + EVENT.start,
+      'DTEND:'   + EVENT.end,
+      'SUMMARY:' + EVENT.title,
+      'LOCATION:' + EVENT.location.replace(/,/g, '\\,'),
+      'DESCRIPTION:' + EVENT.desc.replace(/\n/g, '\\n'),
+      'END:VEVENT',
+      'END:VCALENDAR'
+    ];
+    var blob = new Blob(['﻿' + lines.join('\r\n')],
+                        { type: 'text/calendar;charset=utf-8' });
+    var url  = URL.createObjectURL(blob);
+    var a    = document.createElement('a');
+    a.href     = url;
+    a.download = 'חתונת-אלימלך-ואביטל.ics';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function() { URL.revokeObjectURL(url); }, 200);
+  }
+</script>
+</body>
+</html>
